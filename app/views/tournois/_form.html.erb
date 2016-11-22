@@ -1,0 +1,42 @@
+<%= form_for(tournoi) do |f| %>
+  <% if tournoi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tournoi.errors.count, "error") %> prohibited this tournoi from being saved:</h2>
+
+      <ul>
+      <% tournoi.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :game %>
+    <%= f.text_field :game %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.time_select :time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :players %>
+    <%= f.number_field :players %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
